@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sana Saleem - YouTube Marketing Specialist</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Sana Saleem</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">YouTube Marketing Services</a></li>
+                <li><a href="https://www.youtube.com/results?search_query=youtube+marketing">Video Marketing Resources</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Your YouTube campaigns thrive with my expertise.</h2>
+            <p>I'll help you get the most out of your YouTube marketing campaigns or teach you the skills so you can excel on your own!</p><br>
+            <img src="https://png.pngtree.com/thumb_back/fh260/background/20230704/pngtree-web-development-banner-enhances-creative-3d-rendered-mobile-mockup-with-laptop-image_3742575.jpg" alt="Sana Saleem"><br>
+            <button class="redirect-button">Outsource YouTube Marketing</button>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>YouTube Marketing Services</h2>
+        <div class="service-cards">
+            <div class="card">
+                <h3>Outsource YouTube Marketing</h3>
+                <p>I get the most out of your YouTube marketing campaigns. Let me setup, manage, and optimize your account.</p>
+                <button class="redirect-button">I want to know more</button>
+            </div>
+            <div class="card">
+                <h3>YouTube Marketing Courses</h3>
+                <p>Learn proven YouTube strategies, video content techniques, and discover hacks used to grow my clients' channels!</p>
+                <button class="redirect-button">I want to learn YouTube Marketing</button>
+            </div>
+            <div class="card">
+                <h3>YouTube Marketing Coaching</h3>
+                <p>Do you have the basics of YouTube marketing under control and are ready to go deeper? I am here for you!</p>
+                <button class="redirect-button">I want to grow</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Ready to elevate your YouTube marketing game? Let's connect and discuss how I can help your business thrive.</p>
+        <form id="contactForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/Sana-ifthikhar/">LinkedIn</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+        </div>
+        <p>© 2024 Sana Saleem. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Function to check if the form is filled out
+        function isFormFilled() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            return name && email && message;
+        }
+
+        // Redirecting buttons to the form if it’s not filled
+        document.querySelectorAll(".redirect-button").forEach(button => {
+            button.addEventListener("click", function(event) {
+                if (!isFormFilled()) {
+                    event.preventDefault();
+                    alert("Please fill out the contact form first.");
+                    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        });
+
+        // Contact form submission handling
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if (name && email && message) {
+                localStorage.setItem("contactName", name);
+                localStorage.setItem("contactEmail", email);
+                localStorage.setItem("contactMessage", message);
+
+                alert("Thank you for contacting me! Your details have been saved.");
+                document.getElementById("contactForm").reset();
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+    </script>
+</body>
+</html>
